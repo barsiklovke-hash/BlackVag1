@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BlackVag — технический центр VAG на 3-й Мытищинской</title>
+<meta name="description" content="Технический центр для автомобилей концерна VAG (VW, Audi, Skoda, Seat). Ремонт двигателей, диагностика. По записи.">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600;800&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>:root{--bg:#0a0a0a;--bg2:#141414;--fg:#f0f0f0;--mut:#8d8d8d;--ac:#5b8cff;--on:#ffffff;--line:rgba(255,255,255,.14);--card:#141414;--acs:rgba(91,140,255,0.16);--navbg:rgba(10,10,10,0.92);--hf:'Exo 2',sans-serif;--bf:'Golos Text',system-ui,sans-serif;--mf:'JetBrains Mono',monospace;--hup:uppercase;--hls:.01em;--hw:800;--rad:0px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--bf);font-size:clamp(15px,.6vw + 12px,18px);line-height:1.6;overflow-x:hidden;padding-bottom:84px}
+@media(min-width:900px){body{padding-bottom:0}}
+h1,h2,h3{overflow-wrap:anywhere;font-family:var(--hf);text-transform:var(--hup);letter-spacing:var(--hls);line-height:1.02;margin:0;font-weight:var(--hw)}
+a{color:inherit}
+.mono{font-family:var(--mf);font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;color:var(--mut)}
+.num{font-family:var(--mf);color:var(--ac);font-size:.78rem;letter-spacing:.1em}
+.wrap{max-width:1360px;margin:0 auto;padding-inline:clamp(20px,5vw,72px)}
+.sec{padding-block:clamp(64px,10vw,140px);position:relative}
+.alt{background:var(--bg2)}
+:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+main{display:flex;flex-direction:column}
+.t2{font-size:clamp(2rem,5.6vw,4.6rem);max-width:13em}
+header.nav{position:fixed;inset:0 0 auto 0;z-index:40;border-bottom:1px solid transparent;transition:background .3s,border-color .3s}
+header.nav.solid{background:var(--navbg);backdrop-filter:blur(10px);border-color:var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:66px;gap:16px}
+.logo{font-family:var(--hf);font-weight:var(--hw);font-size:1.15rem;text-transform:var(--hup);letter-spacing:var(--hls);text-decoration:none;white-space:nowrap}
+.logo i{color:var(--ac);font-style:normal}
+.nav-links{display:none;gap:30px}
+.nav-links a{text-decoration:none;font-size:.9rem;color:var(--mut)}
+.nav-links a:hover{color:var(--ac)}
+@media(min-width:900px){.nav-links{display:flex}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;border:1px solid var(--ac);background:var(--ac);color:var(--on);font-family:var(--hf);font-weight:600;font-size:.95rem;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;cursor:pointer;border-radius:var(--rad);transition:filter .2s,transform .2s,background .2s,color .2s}
+.btn:hover{filter:brightness(1.1)}.btn:active{transform:translateY(1px)}
+.btn.ghost{background:transparent;color:var(--fg);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--ac);color:var(--ac);filter:none}
+.btn-sm{min-height:44px;padding:0 20px;font-size:.82rem}
+.hero{position:relative;overflow:hidden;isolation:isolate;padding-top:calc(66px + clamp(40px,8vw,100px));padding-bottom:clamp(40px,7vw,90px)}
+.hero h1{font-size:clamp(2.7rem,9vw,8rem)}
+.hero h1 em{font-style:normal;color:var(--ac)}
+.lead{max-width:34em;color:var(--mut);font-size:clamp(1rem,1vw + .7rem,1.22rem);margin:24px 0 32px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.motif{position:absolute;z-index:-1;pointer-events:none}
+.motif svg{width:100%;height:100%;display:block}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);margin-top:clamp(34px,6vw,76px);border-top:1px solid var(--line)}
+.facts div{padding:18px 12px 18px 0;border-bottom:1px solid var(--line)}
+.facts b{display:block;font-family:var(--hf);font-size:clamp(1.3rem,2.8vw,2.2rem);font-weight:var(--hw);line-height:1.1;text-transform:var(--hup)}
+@media(min-width:900px){.facts{grid-template-columns:repeat(4,1fr)}.facts div{border-bottom:0;border-left:1px solid var(--line);padding-left:22px}.facts div:first-child{border-left:0;padding-left:0}}
+/* about */
+.about{display:grid;gap:30px}
+.about p{color:var(--mut);max-width:38em;margin:0 0 16px}
+.about blockquote{margin:22px 0 0;border-left:3px solid var(--ac);padding-left:18px;color:var(--fg)}
+@media(min-width:900px){.about{grid-template-columns:5fr 4fr;gap:90px;align-items:end}}
+/* services */
+.svcs{margin-top:clamp(30px,5vw,60px)}
+.svc{display:grid;grid-template-columns:1fr auto;gap:4px 18px;padding:22px 0;border:0;border-top:1px solid var(--line);align-items:baseline;cursor:pointer;background:none;width:100%;text-align:left;color:inherit;font:inherit;transition:padding .25s}
+.svc:hover{padding-left:12px}
+.svc h3{font-size:clamp(1.2rem,2.4vw,1.8rem)}
+.svc .price{font-family:var(--hf);font-weight:var(--hw);font-size:clamp(1.1rem,2.2vw,1.6rem);white-space:nowrap;text-align:right;color:var(--ac)}
+.svc .d{grid-column:1/-1;color:var(--mut);max-width:44em;font-size:.93rem;margin:0}
+.tag{display:inline-block;margin-left:10px;background:var(--ac);color:var(--on);font-family:var(--mf);font-size:.62rem;letter-spacing:.1em;padding:3px 8px;vertical-align:middle;text-transform:uppercase;border-radius:calc(var(--rad)/2)}
+.note{margin-top:22px;font-size:.85rem;color:var(--mut)}
+/* why */
+.why{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:clamp(30px,5vw,60px);border-radius:var(--rad);overflow:hidden}
+.why div{background:var(--bg);padding:clamp(22px,3vw,40px)}
+.why .n{font-family:var(--mf);color:var(--ac);font-size:.8rem}
+.why h3{font-size:1.35rem;margin:14px 0 10px}
+.why p{margin:0;color:var(--mut)}
+@media(min-width:760px){.why{grid-template-columns:repeat(3,1fr)}}
+/* reviews */
+.rtop{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:clamp(26px,4vw,50px)}
+.score{display:flex;align-items:baseline;gap:14px;margin-top:12px}
+.score b{font-family:var(--hf);font-size:clamp(3.4rem,9vw,6.4rem);line-height:.9;color:var(--ac);font-weight:var(--hw)}
+.revs{display:grid;gap:14px}
+.rev{border:1px solid var(--line);padding:24px;background:var(--card);border-radius:var(--rad);display:flex;flex-direction:column;gap:14px}
+.rev p{margin:0}
+.rev .who{margin-top:auto;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.stars{color:var(--ac);letter-spacing:3px;font-size:.85rem}
+.reply{border-top:1px dashed var(--line);padding-top:12px;font-size:.86rem;color:var(--mut)}
+.demo{font-size:.78rem;color:var(--mut);margin-top:18px}
+@media(min-width:800px){.revs{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1200px){.revs{grid-template-columns:repeat(3,1fr)}}
+/* booking */
+.book-grid{display:grid;gap:36px}
+.book h2{font-size:clamp(2.2rem,6vw,5rem)}
+.book-side p{color:var(--mut);max-width:28em}
+.book-side ul{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:10px}
+.book-side li{display:flex;gap:12px;color:var(--mut);font-size:.94rem}
+.book-side li::before{content:"";width:18px;height:2px;background:var(--ac);margin-top:.8em;flex:none}
+.form{border:1px solid var(--line);background:var(--card);padding:clamp(18px,3vw,38px);display:grid;gap:28px;border-radius:var(--rad)}
+fieldset{border:0;padding:0;margin:0;min-width:0}
+.fsl{display:flex;gap:12px;align-items:baseline;margin-bottom:12px}
+.fsl h3{font-size:1.05rem;letter-spacing:.06em}
+.opts{display:grid;gap:8px}
+.opt{display:flex;justify-content:space-between;gap:14px;align-items:center;min-height:56px;padding:12px 16px;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer;text-align:left;font:inherit;border-radius:var(--rad);transition:border-color .2s,background .2s}
+.opt:hover{border-color:var(--ac)}
+.opt[aria-pressed="true"]{border-color:var(--ac);background:var(--acs)}
+.opt small{display:block;color:var(--mut);font-size:.78rem}
+.opt .p{font-family:var(--hf);font-weight:600;white-space:nowrap;color:var(--ac)}
+.days{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x proximity}
+.day{flex:none;scroll-snap-align:start;min-width:62px;min-height:72px;padding:8px;border:1px solid var(--line);background:none;color:var(--fg);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font:inherit;border-radius:var(--rad)}
+.day span{font-family:var(--mf);font-size:.62rem;color:var(--mut);text-transform:uppercase}
+.day b{font-family:var(--hf);font-size:1.35rem;font-weight:600;line-height:1}
+.day[aria-pressed="true"]{background:var(--ac);border-color:var(--ac);color:var(--on)}
+.day[aria-pressed="true"] span{color:var(--on)}
+.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+@media(min-width:560px){.slots{grid-template-columns:repeat(6,1fr)}}
+.slot{min-height:48px;border:1px solid var(--line);background:none;color:var(--fg);cursor:pointer;font-family:var(--mf);font-size:.84rem;border-radius:var(--rad)}
+.slot:hover:not([disabled]){border-color:var(--ac)}
+.slot[aria-pressed="true"]{background:var(--ac);color:var(--on);border-color:var(--ac)}
+.slot[disabled]{opacity:.28;text-decoration:line-through;cursor:not-allowed}
+.fields{display:grid;gap:14px}
+@media(min-width:600px){.fields{grid-template-columns:1fr 1fr}}
+.field label{display:block;margin-bottom:8px}
+.field input{width:100%;min-height:52px;padding:12px 16px;background:transparent;border:1px solid var(--line);color:var(--fg);font:inherit;border-radius:var(--rad)}
+.field input:focus{outline:none;border-color:var(--ac)}
+.field.bad input{border-color:#e0674f}
+.err{color:#e5705a;font-size:.82rem;min-height:1.2em;margin-top:6px}
+.summary{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;border-top:1px solid var(--line);padding-top:22px}
+.summary .t{font-family:var(--hf);font-size:1.05rem;text-transform:var(--hup)}
+.summary .t small{display:block;font-family:var(--bf);text-transform:none;color:var(--mut);font-size:.85rem}
+@media(min-width:960px){.book-grid{grid-template-columns:4fr 6fr;gap:80px}.book-side{position:sticky;top:100px;align-self:start}}
+/* contacts */
+.cgrid{display:grid;gap:36px}
+.cgrid dl{margin:0;display:grid;gap:20px}
+.cgrid dt{margin-bottom:4px}
+.cgrid dd{margin:0;font-size:1.1rem}
+.cgrid dd small{color:var(--mut);font-size:.9rem}
+.mapbox{position:relative;min-height:300px;border:1px solid var(--line);background:var(--bg2);overflow:hidden;border-radius:var(--rad)}
+.mapbox svg.m{position:absolute;inset:0;width:100%;height:100%}
+.pin{position:absolute;left:52%;top:46%;transform:translate(-50%,-100%);text-align:center}
+.pin i{display:block;width:18px;height:18px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--ac);margin:0 auto 6px;box-shadow:0 0 0 6px var(--acs)}
+.pin span{background:var(--bg);border:1px solid var(--line);padding:6px 10px;font-family:var(--hf);text-transform:var(--hup);font-size:.78rem;white-space:nowrap;border-radius:calc(var(--rad)/2)}
+@media(min-width:900px){.cgrid{grid-template-columns:1fr 1.2fr;gap:80px}}
+footer.foot{border-top:1px solid var(--line);padding:28px 0 36px;color:var(--mut);font-size:.84rem}
+.foot .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
+/* bar, modal, drawer */
+.mbar{position:fixed;inset:auto 0 0 0;z-index:45;display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:var(--navbg);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+.mbar .btn{flex:1;min-height:52px;padding:0 12px}.mbar .btn.ghost{flex:0 0 auto;padding:0 18px}
+@media(min-width:900px){.mbar{display:none}}
+.modal{position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(8,8,8,.74);backdrop-filter:blur(6px)}
+.modal.open{display:flex;animation:fade .25s}
+.ticket{width:min(100%,480px);background:var(--bg);color:var(--fg);border:1px solid var(--line);position:relative;max-height:92svh;overflow:auto;animation:rise .4s cubic-bezier(.2,.8,.2,1);border-radius:var(--rad)}
+.ticket-top{background:var(--ac);color:var(--on);padding:24px 26px;display:flex;justify-content:space-between;align-items:center}
+.ticket-top h3{font-size:1.6rem}.ticket-top svg{width:42px;height:42px}
+.ticket-body{padding:24px 26px 28px}
+.ticket dl{margin:0 0 22px}
+.ticket dl div{display:flex;justify-content:space-between;gap:20px;padding:11px 0;border-bottom:1px dashed var(--line)}
+.ticket dt{color:var(--mut);font-size:.85rem}.ticket dd{margin:0;font-weight:600;text-align:right}
+.ticket p{margin:0 0 20px;color:var(--mut);font-size:.95rem}
+.ticket .btn{width:100%}
+@keyframes fade{from{opacity:0}}@keyframes rise{from{opacity:0;transform:translateY(24px)}}
+.adm-fab{position:fixed;left:14px;bottom:96px;z-index:50;min-height:44px;padding:0 14px;background:var(--bg);color:var(--mut);border:1px solid var(--line);font-family:var(--mf);font-size:.7rem;letter-spacing:.06em;cursor:pointer;display:flex;align-items:center;gap:8px;border-radius:var(--rad)}
+.adm-fab:hover{border-color:var(--ac);color:var(--fg)}
+.adm-fab b{background:var(--ac);color:var(--on);min-width:20px;height:20px;border-radius:10px;display:grid;place-items:center;font-size:.7rem;padding:0 5px}
+@media(min-width:900px){.adm-fab{bottom:18px}}
+.drawer{position:fixed;inset:0 0 0 auto;z-index:90;width:min(100%,440px);background:var(--bg2);color:var(--fg);border-left:1px solid var(--line);transform:translateX(102%);transition:transform .35s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column}
+.drawer.open{transform:none}
+.dr-head{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--line)}
+.dr-head h3{font-size:1.1rem}
+.x{width:44px;height:44px;display:grid;place-items:center;background:none;border:1px solid var(--line);color:var(--fg);cursor:pointer;font-size:1.1rem;border-radius:var(--rad)}
+.dr-body{flex:1;overflow:auto;padding:16px 20px;display:grid;gap:12px;align-content:start}
+.lead-card{border:1px solid var(--line);padding:14px;background:var(--bg);display:grid;gap:5px;border-radius:var(--rad)}
+.lead-card .row{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.lead-card b{font-family:var(--hf);font-size:1.05rem;text-transform:var(--hup)}
+.lead-card .st{font-family:var(--mf);font-size:.62rem;color:var(--on);background:var(--ac);padding:2px 8px;text-transform:uppercase;letter-spacing:.08em;border-radius:calc(var(--rad)/2)}
+.lead-card .st.done{background:#7fae6b;color:#10200a}
+.lead-card small{color:var(--mut)}
+.lead-card .acts{display:flex;gap:8px;margin-top:6px}
+.lead-card .acts button{min-height:40px;padding:0 12px;background:none;border:1px solid var(--line);color:var(--fg);cursor:pointer;font:inherit;font-size:.82rem;border-radius:var(--rad)}
+.lead-card .acts button:hover{border-color:var(--ac)}
+.empty{text-align:center;color:var(--mut);padding:46px 10px}
+.dr-foot{padding:14px 20px calc(14px + env(safe-area-inset-bottom));border-top:1px solid var(--line);display:flex;gap:8px;align-items:center;justify-content:space-between}
+.scrim{position:fixed;inset:0;z-index:85;background:rgba(8,8,8,.6);opacity:0;pointer-events:none;transition:opacity .3s}
+.scrim.open{opacity:1;pointer-events:auto}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+
+.hero-grid{display:grid;gap:30px;align-items:end;border-top:6px solid var(--fg);padding-top:20px}
+.hero h1{font-size:clamp(1.9rem,6.4vw,6rem);line-height:.98;font-weight:var(--hw)}
+.hero .motif{position:relative;z-index:0;width:min(100%,360px);aspect-ratio:1;margin-inline:auto 0;border:1px solid var(--line);padding:26px;background:var(--bg2)}
+@media(min-width:900px){.hero-grid{grid-template-columns:1.4fr .6fr}}
+.btn{border-radius:0}
+.svc{grid-template-columns:60px 1fr auto}
+.svc .idx{font-family:var(--mf);font-size:.8rem;color:var(--mut)}
+.svc .d{grid-column:2/-1}
+.svcs{counter-reset:s}
+.t2{font-weight:var(--hw)}
+.why{border-radius:0}
+</style>
+</head>
+<body>
+<header class="nav" id="nav"><div class="wrap nav-in"><a class="logo" href="#top" aria-label="BlackVag — наверх">BLACK<i>VAG</i></a>
+<nav class="nav-links" aria-label="Основная навигация"><a href="#about">О центре</a><a href="#prices">Услуги</a><a href="#reviews">Отзывы</a><a href="#contacts">Контакты</a></nav><a class="btn btn-sm" href="#booking" id="navCta" style="display:none">Записаться</a></div></header>
+<div id="top"></div>
+<section class="hero"><div class="wrap"><div class="hero-grid"><div>
+<p class="mono" style="margin:0 0 20px">Технический центр · Алексеевский · по предварительной записи</p><h1>Специалисты по <em>VAG</em>. Без компромиссов.</h1><p class="lead">Диагностика и ремонт автомобилей Volkswagen, Audi, Skoda и Seat. Восстанавливаем то, что другие советуют заменить.</p>
+<div class="cta"><a class="btn" href="#booking">Записаться онлайн</a><a class="btn ghost" href="#prices">Услуги и цены</a></div></div>
+<div class="motif" data-cap="BlackVag" aria-hidden="true"><svg viewBox="0 0 400 400" fill="none" stroke="var(--ac)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M60 290a150 150 0 1 1 280 0"/><path d="M200 220L286 128" stroke-width="5"/><circle cx="200" cy="220" r="14" fill="var(--ac)"/><g stroke="var(--fg)" stroke-opacity=".22"><path d="M72 238l14 5M96 170l13 8M148 120l8 12M200 100v14M252 120l-8 12M304 170l-13 8M328 238l-14 5"/></g><path d="M80 330H320" stroke="var(--fg)" stroke-opacity=".22"/></svg></div></div>
+<div class="facts"><div><b>5,0</b><span class="mono">рейтинг в 2ГИС</span></div><div><b>По записи</b><span class="mono">мастер готов к визиту</span></div><div><b>VW · Audi · Skoda</b><span class="mono">специализация</span></div><div><b>WhatsApp</b><span class="mono">и Telegram</span></div></div></div></section>
+
+<main>
+<section class="sec" id="about" style="order:1"><div class="wrap about">
+<div class="rv"><p class="num">01 / О центре</p><h2 class="t2" style="margin-top:16px">Сложный ремонт —<br>наша специальность</h2></div>
+<div class="rv"><p>BlackVag — технический центр, специализирующийся на автомобилях концерна VAG. Мы работаем по записи, чтобы уделить вашему автомобилю максимум внимания.</p><p>Клиенты рассказывают: двигатель 1,4 TSI после гидроудара удалось восстановить без дорогостоящей замены. Это и есть наш подход.</p><blockquote>«Профессионалы своего дела — благодаря им удалось избежать покупки контрактного мотора».</blockquote></div></div></section>
+<section class="sec alt" id="prices" style="order:2"><div class="wrap">
+<div class="sec-head rv"><p class="num">02 / Услуги</p><h2 class="t2" style="margin-top:16px">Услуги и цены</h2>
+<p class="note" style="margin-top:12px">Нажмите на услугу — она сразу попадёт в форму записи.</p></div>
+<div class="svcs" id="svcList"></div><p class="note">Цены демонстрационные — в карточке 2ГИС прайс не опубликован. Владелец заменит их на реальные.</p></div></section>
+<section class="sec" style="order:3"><div class="wrap"><div class="sec-head rv"><p class="num">03 / Принципы</p>
+<h2 class="t2" style="margin-top:16px">Почему BlackVag</h2></div><div class="why"><div class="rv"><span class="n">01</span><h3>Специализация</h3><p>Знаем платформы VAG изнутри.</p></div><div class="rv"><span class="n">02</span><h3>Восстановление, а не замена</h3><p>Ищем причину и оцениваем реальную необходимость замены.</p></div><div class="rv"><span class="n">03</span><h3>Запись по времени</h3><p>Мастер готов к вашему приезду.</p></div></div></div></section>
+<section class="sec alt" id="reviews" style="order:4"><div class="wrap">
+<div class="rtop rv"><div><p class="num">04 / Отзывы</p><h2 class="t2" style="margin-top:16px">Что говорят клиенты</h2><div class="score"><b>5,0</b><span class="mono">по оценкам клиентов
+в 2ГИС</span></div></div>
+<a class="btn ghost" href="https://2gis.ru/moscow/firm/70000001044972882/tab/reviews" target="_blank" rel="noopener">Отзывы на 2ГИС</a></div>
+<div class="revs"><article class="rev rv"><div class="stars" aria-label="5 из 5">★★★★★</div><p>Ремонтировала двигатель 1,4 TSI своего VW Golf VI после гидроудара. Ребята — профессионалы, помогли восстановить мотор, благодаря их мастерству удалось избежать дорогостоящего ремонта.</p>
+<div class="who"><b>Жаннет К.</b><span class="mono">сентябрь 2022</span></div></article><article class="rev rv"><div class="stars" aria-label="5 из 5">★★★★★</div><p>Прекрасный сервис. Отзывчивые, квалифицированные и надёжные люди. Грамотные рекомендации, всё быстро и качественно.</p><div class="reply">Большое спасибо за высокую оценку! Мы старались.</div>
+<div class="who"><b>Роман Г.</b><span class="mono">июль 2022</span></div></article><article class="rev rv"><div class="stars" aria-label="5 из 5">★★★★★</div><p>Супер крутые и отзывчивые ребята! Мою проблему решили очень быстро, теперь езжу на любимой машине.</p>
+<div class="who"><b>Лида М.</b><span class="mono">апрель 2024</span></div></article></div></div></section>
+<section class="sec book" id="booking" style="order:5"><div class="wrap book-grid">
+<div class="book-side rv"><p class="num">05 / Запись</p><h2 style="margin-top:16px">Записаться в&nbsp;центр</h2><p style="margin-top:20px">Выберите услугу, день и время — мы перезвоним и подтвердим запись.</p><ul><li>Подтверждаем запись звонком</li><li>Называем точную цену до начала работ</li><li>Оплата после выполнения</li></ul></div>
+<form class="form rv" id="bookForm" novalidate>
+<fieldset><div class="fsl"><span class="num">A</span><h3>Услуга</h3></div><div class="opts" id="optSvc"></div><div class="err" id="eSvc" role="alert"></div></fieldset>
+<fieldset><div class="fsl"><span class="num">B</span><h3>Мастер</h3></div><div class="opts" id="optMaster"></div></fieldset>
+<fieldset><div class="fsl"><span class="num">C</span><h3>День</h3></div><div class="days" id="days"></div><div class="err" id="eDay" role="alert"></div></fieldset>
+<fieldset><div class="fsl"><span class="num">D</span><h3>Время</h3></div><div class="slots" id="slots"></div><div class="err" id="eTime" role="alert"></div></fieldset>
+<fieldset><div class="fsl"><span class="num">E</span><h3>Ваши данные</h3></div><div class="fields">
+<div class="field" id="fName"><label class="mono" for="name">Имя</label><input id="name" autocomplete="given-name" placeholder="Например, Иван" maxlength="40"><div class="err"></div></div>
+<div class="field" id="fPhone"><label class="mono" for="phone">Телефон</label><input id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__"><div class="err"></div></div>
+<div class="field" style="grid-column:1/-1"><label class="mono" for="car">Модель и год выпуска</label><input id="car" maxlength="60" placeholder="Например, VW Golf VI, 2012"></div></div></fieldset>
+<div class="summary"><div class="t" id="sumT">Выберите услугу<small id="sumS">и удобное время</small></div><button class="btn" type="submit">Отправить заявку</button></div></form></div></section>
+<section class="sec" id="contacts" style="order:6"><div class="wrap cgrid">
+<div class="rv"><p class="num">06 / Контакты</p><h2 class="t2" style="margin:16px 0 30px">Как нас найти</h2><dl><div><dt class="mono">Адрес</dt><dd>3-я Мытищинская улица, 16 ст16<br><small>район Алексеевский, Москва, 129626</small></dd></div><div><dt class="mono">График</dt><dd>По предварительной записи</dd></div><div><dt class="mono">Связь</dt><dd>WhatsApp · Telegram<br><small>номер — в карточке 2ГИС</small></dd></div></dl>
+<p style="margin-top:28px"><a class="btn ghost" href="https://2gis.ru/moscow/firm/70000001044972882" target="_blank" rel="noopener">Открыть в 2ГИС</a></p></div>
+<div class="mapbox rv" role="img" aria-label="Схема расположения"><svg class="m" viewBox="0 0 600 440" preserveAspectRatio="xMidYMid slice" fill="none" stroke="var(--fg)" stroke-opacity=".16">
+<path d="M-20 330L620 140" stroke-width="22"/><path d="M-20 330L620 140" stroke="var(--ac)" stroke-opacity=".6" stroke-width="1" stroke-dasharray="10 8"/><path d="M120 -10L200 460" stroke-width="10"/><path d="M360 -10L440 460" stroke-width="10"/><path d="M-20 90L620 60" stroke-width="6"/><path d="M-20 400L620 380" stroke-width="6"/><rect x="262" y="168" width="64" height="40" stroke-opacity=".4"/></svg>
+<div class="pin"><i></i><span>BlackVag</span></div></div></div></section>
+</main>
+<footer class="foot"><div class="wrap"><span>© 2026 BlackVag</span><span>Москва, 3-я Мытищинская ул., 16 ст16</span></div></footer>
+<div class="mbar"><a class="btn" href="#booking">Записаться онлайн</a><a class="btn ghost" href="#contacts">Адрес</a></div>
+<button class="adm-fab" id="admOpen" aria-haspopup="dialog">DEMO · ЗАЯВКИ <b id="admCount">0</b></button>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drT" aria-hidden="true"><div class="dr-head"><h3 id="drT">Заявки (демо-админка)</h3><button class="x" id="admClose" aria-label="Закрыть">✕</button></div><div class="dr-body" id="leads"></div><div class="dr-foot"><span class="mono">Хранится в браузере</span><button class="btn ghost btn-sm" id="admClear" type="button">Очистить</button></div></aside>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mT"><div class="ticket"><div class="ticket-top"><h3 id="mT">Заявка принята</h3><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="22" cy="22" r="19"/><path d="M13 23l7 7 12-14"/></svg></div><div class="ticket-body"><p id="mP"></p><dl id="mDl"></dl><button class="btn" id="mClose" type="button">Отлично</button></div></div></div>
+<script>window.__CFG={"key": "blackvag", "layout": "swiss", "addr": "Москва, 3-я Мытищинская ул., 16 ст16", "slots": ["09:00", "11:00", "13:00", "15:00", "17:00"], "masters": [["Любой свободный мастер", "Ближайшее окно"], ["Мастер по двигателям", "TSI / TFSI / FSI"], ["Мастер по трансмиссии", "DSG / АКПП"]], "services": [{"name": "Компьютерная диагностика VAG", "desc": "Диагностика всех систем, считывание и анализ ошибок.", "price": 2500, "from": true, "dur": "1 ч"}, {"name": "Ремонт двигателя TSI / TFSI", "desc": "Диагностика и восстановление после поломок.", "price": 15000, "from": true, "dur": "2–5 дней", "hit": "специализация"}, {"name": "Обслуживание DSG", "desc": "Замена масла, адаптация коробки.", "price": 9000, "from": true, "dur": "3 ч"}, {"name": "Техническое обслуживание", "desc": "Масло, фильтры, свечи, осмотр.", "price": 5000, "from": true, "dur": "2 ч"}, {"name": "Ремонт подвески", "desc": "Замена элементов и проверка геометрии.", "price": 3500, "from": true, "dur": "2 ч"}, {"name": "Чип-тюнинг и программирование", "desc": "Корректировка параметров блока управления.", "price": 12000, "from": true, "dur": "3 ч"}]};</script>
+<script>
+(function(){
+'use strict';
+var C=window.__CFG;
+var KEY='demo_'+C.key+'_v1';
+var SERVICES=C.services,SLOTS=C.slots,MASTERS=C.masters;
+var state={svc:null,day:null,time:null,master:MASTERS[0]};
+var $=function(s,r){return (r||document).querySelector(s)};
+var fmt=function(n){return n===0?'бесплатно':new Intl.NumberFormat('ru-RU').format(n).replace(/ /g,' ')+' ₽'};
+var priceOf=function(s){return s.pr?s.pr:((s.from?'от ':'')+fmt(s.price))};
+var DOW=['вс','пн','вт','ср','чт','пт','сб'];
+var MON=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||[]}catch(e){return []}}
+function save(a){try{localStorage.setItem(KEY,JSON.stringify(a))}catch(e){}}
+function iso(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function human(s){var p=s.split('-').map(Number);var d=new Date(p[0],p[1]-1,p[2]);return d.getDate()+' '+MON[d.getMonth()]+', '+DOW[d.getDay()]}
+function hash(s){var h=0;for(var i=0;i<s.length;i++){h=(h*31+s.charCodeAt(i))|0}return Math.abs(h)}
+function renderServices(){
+  var list=$('#svcList'),opts=$('#optSvc');list.innerHTML='';opts.innerHTML='';
+  SERVICES.forEach(function(s,idx){
+    var b=document.createElement('button');b.type='button';b.className='svc';
+    var ix=document.createElement('span');ix.className='idx';ix.textContent=String(idx+1).padStart(2,'0');
+    var h=document.createElement('h3');h.textContent=s.name;
+    if(s.hit){var t=document.createElement('span');t.className='tag';t.textContent=s.hit;h.appendChild(t)}
+    var p=document.createElement('span');p.className='price';p.textContent=priceOf(s);
+    var d=document.createElement('p');d.className='d';d.textContent=s.desc+' · '+s.dur;
+    if(C.layout==='swiss')b.appendChild(ix);
+    b.appendChild(h);b.appendChild(p);b.appendChild(d);
+    b.addEventListener('click',function(){selectSvc(idx);document.getElementById('booking').scrollIntoView({behavior:'smooth'})});
+    list.appendChild(b);
+    var o=document.createElement('button');o.type='button';o.className='opt';o.dataset.i=idx;o.setAttribute('aria-pressed','false');
+    var l=document.createElement('span');l.textContent=s.name;var sm=document.createElement('small');sm.textContent=s.dur;l.appendChild(sm);
+    var pp=document.createElement('span');pp.className='p';pp.textContent=priceOf(s);
+    o.appendChild(l);o.appendChild(pp);o.addEventListener('click',function(){selectSvc(idx)});opts.appendChild(o);
+  });
+  var mo=$('#optMaster');mo.innerHTML='';
+  MASTERS.forEach(function(m,i){
+    var o=document.createElement('button');o.type='button';o.className='opt';o.setAttribute('aria-pressed',String(i===0));
+    var l=document.createElement('span');l.textContent=m[0];var sm=document.createElement('small');sm.textContent=m[1];l.appendChild(sm);
+    o.appendChild(l);
+    o.addEventListener('click',function(){state.master=m;mo.querySelectorAll('.opt').forEach(function(x,j){x.setAttribute('aria-pressed',String(j===i))})});
+    mo.appendChild(o);
+  });
+}
+function selectSvc(i){state.svc=i;document.querySelectorAll('.opt[data-i]').forEach(function(o){o.setAttribute('aria-pressed',String(+o.dataset.i===i))});$('#eSvc').textContent='';updateSummary()}
+function renderDays(){
+  var box=$('#days');box.innerHTML='';var now=new Date();
+  for(var i=0;i<14;i++){
+    var d=new Date(now.getFullYear(),now.getMonth(),now.getDate()+i);
+    var b=document.createElement('button');b.type='button';b.className='day';b.dataset.d=iso(d);b.setAttribute('aria-pressed','false');
+    b.innerHTML='<span></span><b></b>';b.firstChild.textContent=i===0?'сегодня':DOW[d.getDay()];b.lastChild.textContent=d.getDate();
+    b.addEventListener('click',function(){state.day=this.dataset.d;state.time=null;
+      document.querySelectorAll('.day').forEach(function(x){x.setAttribute('aria-pressed',String(x.dataset.d===state.day))});
+      $('#eDay').textContent='';renderSlots();updateSummary()});
+    box.appendChild(b);
+  }
+}
+function renderSlots(){
+  var box=$('#slots');box.innerHTML='';
+  if(!state.day){var m=document.createElement('p');m.className='mono';m.style.cssText='grid-column:1/-1;margin:0';m.textContent='Сначала выберите день';box.appendChild(m);return}
+  var taken=load().filter(function(b){return b.date===state.day}).map(function(b){return b.time});
+  var now=new Date(),today=iso(now);
+  SLOTS.forEach(function(t){
+    var b=document.createElement('button');b.type='button';b.className='slot';b.textContent=t;b.setAttribute('aria-pressed','false');
+    var busy=taken.indexOf(t)>-1||hash(C.key+state.day+t)%5===0;
+    var past=state.day===today&&(parseInt(t,10)<=now.getHours());
+    if(busy||past){b.disabled=true;b.title=past?'Время прошло':'Занято'}
+    b.addEventListener('click',function(){state.time=t;
+      document.querySelectorAll('.slot').forEach(function(x){x.setAttribute('aria-pressed',String(x.textContent===t))});
+      $('#eTime').textContent='';updateSummary()});
+    box.appendChild(b);
+  });
+}
+function updateSummary(){
+  var s=SERVICES[state.svc],t=$('#sumT');
+  if(!s){t.firstChild.nodeValue='Выберите услугу';$('#sumS').textContent='и удобное время';return}
+  t.firstChild.nodeValue=s.name;
+  $('#sumS').textContent=(state.day?human(state.day):'выберите день')+(state.time?' · '+state.time:'')+' · '+priceOf(s);
+}
+var ph=$('#phone');
+function maskPhone(v){var d=v.replace(/\D/g,'');if(d[0]==='8'||d[0]==='7')d=d.slice(1);d=d.slice(0,10);var r='+7';
+  if(d.length>0)r+=' ('+d.slice(0,3);if(d.length>=3)r+=')';if(d.length>3)r+=' '+d.slice(3,6);if(d.length>6)r+='-'+d.slice(6,8);if(d.length>8)r+='-'+d.slice(8,10);return r}
+ph.addEventListener('input',function(){this.value=this.value.replace(/\D/g,'').length?maskPhone(this.value):''});
+ph.addEventListener('focus',function(){if(!this.value)this.value='+7 ('});
+ph.addEventListener('blur',function(){if(this.value.replace(/\D/g,'').length<=1)this.value='';validatePhone()});
+$('#name').addEventListener('blur',validateName);
+function setErr(id,msg){var f=$(id);f.classList.toggle('bad',!!msg);f.querySelector('.err').textContent=msg||''}
+function validateName(){var ok=/^[A-Za-zА-Яа-яЁё\s'\-]{2,40}$/.test($('#name').value.trim());setErr('#fName',ok?'':'Укажите имя — как к вам обращаться');return ok}
+function validatePhone(){var ok=ph.value.replace(/\D/g,'').length===11;setErr('#fPhone',ok?'':'Введите номер полностью — 10 цифр после +7');return ok}
+$('#name').addEventListener('input',function(){if($('#fName').classList.contains('bad'))validateName()});
+ph.addEventListener('input',function(){if($('#fPhone').classList.contains('bad'))validatePhone()});
+$('#bookForm').addEventListener('submit',function(e){
+  e.preventDefault();var ok=true;
+  if(state.svc===null){$('#eSvc').textContent='Выберите услугу';ok=false}
+  if(!state.day){$('#eDay').textContent='Выберите день';ok=false}else if(!state.time){$('#eTime').textContent='Выберите время';ok=false}
+  if(!validateName())ok=false;if(!validatePhone())ok=false;
+  if(!ok){var f=document.querySelector('.err:not(:empty)');if(f)f.scrollIntoView({behavior:'smooth',block:'center'});return}
+  var s=SERVICES[state.svc];
+  var rec={id:Date.now(),service:s.name,price:priceOf(s),master:state.master[0],date:state.day,time:state.time,name:$('#name').value.trim(),phone:ph.value,car:$('#car').value.trim(),status:'new'};
+  var all=load();all.unshift(rec);save(all);showModal(rec);renderLeads();renderSlots();
+  state.time=null;updateSummary();$('#bookForm').reset();
+  document.querySelectorAll('.slot').forEach(function(x){x.setAttribute('aria-pressed','false')});
+});
+var lastFocus=null;
+function showModal(r){
+  lastFocus=document.activeElement;
+  $('#mP').textContent=r.name+', спасибо! Мы перезвоним на '+r.phone+' и подтвердим запись.';
+  var dl=$('#mDl');dl.innerHTML='';
+  [['Услуга',r.service],['Мастер',r.master],['Когда',human(r.date)+', '+r.time],['Стоимость',r.price],['Адрес',C.addr]].forEach(function(p){
+    var d=document.createElement('div'),a=document.createElement('dt'),b=document.createElement('dd');a.textContent=p[0];b.textContent=p[1];d.appendChild(a);d.appendChild(b);dl.appendChild(d)});
+  $('#modal').classList.add('open');$('#mClose').focus();
+}
+function closeModal(){$('#modal').classList.remove('open');if(lastFocus)lastFocus.focus()}
+$('#mClose').addEventListener('click',closeModal);
+$('#modal').addEventListener('click',function(e){if(e.target===this)closeModal()});
+function openDrawer(){lastFocus=document.activeElement;$('#drawer').classList.add('open');$('#drawer').setAttribute('aria-hidden','false');$('#scrim').classList.add('open');$('#admClose').focus();renderLeads()}
+function closeDrawer(){$('#drawer').classList.remove('open');$('#drawer').setAttribute('aria-hidden','true');$('#scrim').classList.remove('open');if(lastFocus)lastFocus.focus()}
+$('#admOpen').addEventListener('click',openDrawer);$('#admClose').addEventListener('click',closeDrawer);$('#scrim').addEventListener('click',closeDrawer);
+$('#admClear').addEventListener('click',function(){if(load().length&&confirm('Удалить все демо-заявки?')){save([]);renderLeads();renderSlots()}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){if($('#modal').classList.contains('open'))closeModal();else if($('#drawer').classList.contains('open'))closeDrawer()}});
+function renderLeads(){
+  var all=load();$('#admCount').textContent=all.length;var box=$('#leads');box.innerHTML='';
+  if(!all.length){var e=document.createElement('div');e.className='empty';e.textContent='Заявок пока нет. Запишитесь через форму на сайте — заявка сразу появится здесь.';box.appendChild(e);return}
+  all.forEach(function(r){
+    var c=document.createElement('div');c.className='lead-card';var row=document.createElement('div');row.className='row';
+    var b=document.createElement('b');b.textContent=r.name;var st=document.createElement('span');st.className='st'+(r.status==='done'?' done':'');st.textContent=r.status==='done'?'принято':'новая';
+    row.appendChild(b);row.appendChild(st);c.appendChild(row);
+    [r.service+' · '+r.price,human(r.date)+', '+r.time+' · '+r.master,r.phone+(r.car?' · '+r.car:'')].forEach(function(t){var s=document.createElement('small');s.textContent=t;c.appendChild(s)});
+    var a=document.createElement('div');a.className='acts';
+    var ok=document.createElement('button');ok.type='button';ok.textContent=r.status==='done'?'Вернуть':'Подтвердить';
+    ok.addEventListener('click',function(){var l=load();l.forEach(function(x){if(x.id===r.id)x.status=x.status==='done'?'new':'done'});save(l);renderLeads()});
+    var del=document.createElement('button');del.type='button';del.textContent='Удалить';
+    del.addEventListener('click',function(){save(load().filter(function(x){return x.id!==r.id}));renderLeads();renderSlots()});
+    a.appendChild(ok);a.appendChild(del);c.appendChild(a);box.appendChild(c);
+  });
+}
+var nav=$('#nav');function onScroll(){nav.classList.toggle('solid',window.scrollY>40)}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+var navCta=$('#navCta');function sync(){navCta.style.display=window.innerWidth>=900?'inline-flex':'none'}window.addEventListener('resize',sync);sync();
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.1});document.querySelectorAll('.rv').forEach(function(el){io.observe(el)})}
+else{document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')})}
+renderServices();renderDays();renderSlots();renderLeads();updateSummary();
+})();
+</script>
+</body>
+</html>
